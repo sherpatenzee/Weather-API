@@ -68,21 +68,12 @@ function citySelectOnChange(){
   let selectCityLongitude ="";
   document.getElementById("displayTable").innerHTML =""
    
-
-   if(citySelect == ""){
-    document.getElementById("displayTable").style.display = "none"
-   }
-   else{
-    document.getElementById("displayTable").style.display = "block"
-   }
-
   for(let city of cities){
     
     if(city.name.includes(citySelect)){
       selectCityLatitude = city.latitude
       selectCityLongitude = city.longitude
     }
-  
   }
   
   fetch(`https://api.weather.gov/points/${selectCityLatitude},${selectCityLongitude}`)
@@ -92,10 +83,13 @@ function citySelectOnChange(){
     displaytable(weatherUrl)
    } );
    
-
+   if(citySelect == ""){
+    document.getElementById("displayTable").style.display = "none"
+   }
+   else{
+    document.getElementById("displayTable").style.display = "block"
+   }
    
-  
-  
 }
 
 
@@ -104,7 +98,8 @@ function displaytable(weatherUrl){
     let displayTable = document.getElementById("displayTable")
    
     fetch(weatherUrl)
-    .then(response => response.json()) .then(data => {
+    .then(response => response.json()) 
+    .then(data => {
 
        let period = data.properties.periods
       
