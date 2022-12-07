@@ -1,0 +1,14 @@
+body{
+  background-image:url(image/sara-the-freak-A4UojtraSrw-unsplash.jpg) ;
+  background-position: center;
+  background-repeat:no-repeat;
+ 
+}
+
+#displayTable{
+width: fit-content;
+margin-top: 45px;
+font-weight: 300;
+background-color: rgba(30, 29, 28, 0.169);
+
+}
